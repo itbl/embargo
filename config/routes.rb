@@ -1,4 +1,8 @@
 Embargo::Application.routes.draw do
+  resources :accusations
+
+  resources :people
+
   resources :companies
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}

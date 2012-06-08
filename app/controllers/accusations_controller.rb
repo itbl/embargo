@@ -1,0 +1,3 @@
+
+class AccusationsController < ApplicationController
+end

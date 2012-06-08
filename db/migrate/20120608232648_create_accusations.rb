@@ -4,7 +4,8 @@ class CreateAccusations < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.references :accuser
-      t.references :accusable
+      t.integer :accusable_id
+      t.string :accusable_type
 
       t.timestamps
     end

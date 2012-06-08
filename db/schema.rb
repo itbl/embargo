@@ -11,7 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120608220205) do
+ActiveRecord::Schema.define(:version => 20120608232648) do
+
+  create_table "accusations", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "accuser_id"
+    t.integer  "accusable_id"
+    t.string   "accusable_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "accusations", ["accusable_id"], :name => "index_accusations_on_accusable_id"
+  add_index "accusations", ["accuser_id"], :name => "index_accusations_on_accuser_id"
+
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.string   "city"
+    t.string   "homepage"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "people", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "company_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "people", ["company_id"], :name => "index_people_on_company_id"
 
   create_table "users", :force => true do |t|
     t.string   "username",               :default => "", :null => false

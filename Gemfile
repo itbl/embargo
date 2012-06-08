@@ -53,6 +53,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'acts-as-taggable-on', '~> 2.3.1'
 
 
 

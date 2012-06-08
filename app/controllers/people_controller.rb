@@ -1,0 +1,3 @@
+
+class PeopleController < ApplicationController
+end

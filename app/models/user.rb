@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
     elsif user_signup_allowed?(data)
       self.create(:email => data.email, :password => Devise.friendly_token[0,20], :username => data.login)
     else
-      raise Hubba::RequirementsError, "We're sorry, you're not eligible to register at this time."
+      raise Embargo::RequirementsError, "We're sorry, you're not eligible to register at this time."
     end
   end
   

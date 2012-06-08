@@ -70,6 +70,11 @@ GEM
       railties (~> 3.1)
     gravatar_image_tag (1.1.2)
     haml (3.1.6)
+    haml-rails (0.3.4)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.0)
+      railties (~> 3.0)
     hashie (1.2.0)
     heroku (2.26.6)
       heroku-api (~> 0.2.4)
@@ -118,6 +123,7 @@ GEM
       oauth2 (~> 0.6.0)
       omniauth (~> 1.0)
     orm_adapter (0.0.7)
+    pg (0.13.2)
     polyglot (0.3.3)
     pry (0.9.9.6)
       coderay (~> 1.0.5)
@@ -210,11 +216,12 @@ DEPENDENCIES
   factory_girl_rails
   font-awesome-rails
   gravatar_image_tag (~> 1.1.2)
-  haml
+  haml-rails
   heroku
   jquery-rails
   omniauth
   omniauth-github
+  pg
   pry-rails
   rails (= 3.2.5)
   rspec-rails

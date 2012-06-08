@@ -6,6 +6,7 @@ gem 'rails', '3.2.5'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'pg'
 
 
 # Gems used only for assets and not required
@@ -47,7 +48,7 @@ gem 'font-awesome-rails'
 gem "gravatar_image_tag", "~> 1.1.2"
 
 
-gem 'haml'
+gem 'haml-rails'
 
 gem 'devise'
 gem 'omniauth'

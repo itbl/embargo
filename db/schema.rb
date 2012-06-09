@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120609003613) do
+ActiveRecord::Schema.define(:version => 20120609153604) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -23,16 +23,31 @@ ActiveRecord::Schema.define(:version => 20120609003613) do
 
   add_index "clients", ["email"], :name => "index_clients_on_email"
 
+  create_table "comments", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "report_id"
+    t.boolean  "anonymous",  :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "comments", ["report_id"], :name => "index_comments_on_report_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
   create_table "reports", :force => true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.string   "type"
+    t.boolean  "anonymous",   :default => false
+    t.boolean  "public",      :default => true
     t.integer  "user_id"
     t.integer  "client_id"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-    t.integer  "up_votes",    :default => 0, :null => false
-    t.integer  "down_votes",  :default => 0, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "up_votes",    :default => 0,     :null => false
+    t.integer  "down_votes",  :default => 0,     :null => false
   end
 
   add_index "reports", ["client_id"], :name => "index_reports_on_client_id"

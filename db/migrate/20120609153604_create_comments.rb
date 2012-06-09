@@ -5,6 +5,7 @@ class CreateComments < ActiveRecord::Migration
       t.text :body
       t.references :user
       t.references :report
+      t.boolean :anonymous, :default => false
 
       t.timestamps
     end

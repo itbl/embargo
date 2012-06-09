@@ -1,4 +1,3 @@
-
 class VotingController < ApplicationController
   def upvote
   end

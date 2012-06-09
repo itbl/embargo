@@ -1,8 +1,7 @@
 - title @client.name
 .hero-unit
   %p
-    %b Name: 
-    = @client.name
+    %h2= @client.name
   %p
     %b Email: 
     = @client.email
@@ -11,11 +10,11 @@
     = @client.email
 %ul#reportTab.nav.nav-tabs
   %li.active
-    %a(href='#all' data-toggle='tab') All Reports
+    %a(href="#all" data-toggle="tab") All Reports
   %li
-    %a(href='#accusations' data-toggle='tab') Accusations
+    %a(href="#accusations" data-toggle="tab") Accusations
   %li
-    %a(href='#accolades' data-toggle="tab") Accolades
+    %a(href="#accolades" data-toggle="tab") Accolades
 
 / Some of this still needs to be fixed.
 .tab-content
@@ -31,25 +30,25 @@
       - else
         %h6 Submitted anonymously
   .tab-pane#accusations
-    - @client.accusations.each do |report|
-      %h3= report.title
-      %p= report.description
-      - unless report.anonymous
+    - @client.accusations.each do |accusation|
+      %h3= accusation.title
+      %p= accusation.description
+      - unless accusation.anonymous
         %h6
           Submitted by
-          = gravatar_image_tag(report.user.email, :gravatar => { :size => 20 })
-          = report.user.username
+          = gravatar_image_tag(accusation.user.email, :gravatar => { :size => 20 })
+          = accusation.user.username
       - else
         %h6 Submitted anonymously
   .tab-pane.active#accolades
-    - @client.accolades.each do |report|
-      %h3= report.title
-      %p= report.description
-      - unless report.anonymous
+    - @client.accolades.each do |accolade|
+      %h3= accolade.title
+      %p= accolade.description
+      - unless accolade.anonymous
         %h6
           Submitted by
-          = gravatar_image_tag(report.user.email, :gravatar => { :size => 20 })
-          = report.user.username
+          = gravatar_image_tag(accolade.user.email, :gravatar => { :size => 20 })
+          = accolade.user.username
       - else
         %h6 Submitted anonymously
 

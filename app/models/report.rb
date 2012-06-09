@@ -4,7 +4,7 @@ class Report < ActiveRecord::Base
   has_many :comments
   attr_accessible :description, :title, :type, :client_id, :user_id
 
-
+  scope :publik, where(:public => true)
   
   paginates_per 25
   

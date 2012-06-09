@@ -6,11 +6,12 @@ Embargo::Application.routes.draw do
 
   get "voting/downvote"
 
-  resources :accusations
+  resources :reports
 
-  resources :people
+  resources :clients do
+    resources :reports
+  end
 
-  resources :companies
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
 

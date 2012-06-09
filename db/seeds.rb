@@ -12,19 +12,16 @@ clients = Client.create([{ name: 'Joe Client', email: 'joe.client@gmail.com', ho
 	                     ])
 
 accolade = Accolade.new({ title: 'This guy is totally awesome, great to work for.',
-	                          description: 'they feed you candy every day, and the office is filled with puppies. The only downside is that the puppies are diabetic from the candy.' #,
-	                          #user: dummyuser,
-	                          #client: clients.first
-	                          })
-accolade.user = dummyuser
-accolade.client = clients.first
+	                      description: 'they feed you candy every day, and the office is filled with puppies. The only downside is that the puppies are diabetic from the candy.' })
 accolade.save
 
+dummyuser.accolades << accolade
+clients.first.accolades << accolade
+
+
 accusation = Accusation.new({ title: 'Do not take their calls, trust me.',
-	                          description: 'This is a den of sadistic liars. They hired me for a ruby project, but when I got there it was PHP. Also there were BEES EVERYWHERE!' #,
-	                          #user: dummyuser,
-	                          #client: clients.last
-	                          })
-accusation.user = dummyuser
-accusation.client = clients.last
+	                          description: 'This is a den of sadistic liars. They hired me for a ruby project, but when I got there it was PHP. Also there were BEES EVERYWHERE!' })
 accusation.save
+
+dummyuser.accusations << accusation
+clients.last.accusations << accusation

@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Person do
+describe Client do
   before(:each) do
-    @person = Factory.create(:person)
+    @client = Factory.create(:client)
   end
   
   it "should be valid" do
-    @person.should be_valid
+    @client.should be_valid
   end
 end

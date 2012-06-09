@@ -15,4 +15,14 @@ class Client < ActiveRecord::Base
   validates :homepage, :format => { :with => /(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix,
                                                                   :message => "According to this regex I got off the internet, that isn't a valid URL/URI" }
 
+  def sigil
+    case self.accusations.count <=> self.accolades.count
+    when 1
+      # devil horns
+    when -1
+      #halo
+    when 0
+      nil
+    end
+  end
 end

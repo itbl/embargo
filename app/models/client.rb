@@ -2,6 +2,7 @@ class Client < ActiveRecord::Base
 
   attr_accessible :email, :name, :homepage
 
+  has_many :reports
   has_many :accusations
   has_many :accolades
 

@@ -1,4 +1,6 @@
-$('#reportTab a').click(fucntion (e) {
-  e.preventDefault();
-  $(this).tab('show');
+
+$(document).ready(function() {
+  $('.tab-pane').not('.active').hide();
+  $('.nav-tabs a:first').tab('show');
 });
+

@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   skip_before_filter :authenticate_user!, :only => :index
+  before_filter :find_report, :except => [ :index, :new, :create ]
 
   respond_to :html, :json
   
@@ -10,8 +11,6 @@ class ReportsController < ApplicationController
   end
   
   def show
-    @report = Report.find(params[:id])
-    
     respond_with @report
   end
   
@@ -22,8 +21,6 @@ class ReportsController < ApplicationController
   end
   
   def edit
-    @report = Report.find(params[:id])
-    
     respond_with @report
   end
   
@@ -37,9 +34,7 @@ class ReportsController < ApplicationController
     end
   end
   
-  def update
-    @report = Report.find(params[:id])
-    
+  def update    
     if @report.update_attributes(params[:report])
       redirect_to @report, :notice => "#{@report.type} successfully updated"
     else
@@ -47,9 +42,7 @@ class ReportsController < ApplicationController
     end
   end
 
-  def delete
-    @report = Report.find(params[:id])
-    
+  def delete    
     if @report.destroy
       redirect_to reports_path, :notice => "#{@report.type} deleted"
     else
@@ -58,6 +51,10 @@ class ReportsController < ApplicationController
   end
 
   private
+
+  def find_report
+    @report = Report.find(params[:id])
+  end
 
   def find_client
     @client = Client.find(params[:client_id]) if params[:client_id]

@@ -6,7 +6,7 @@ class Client < ActiveRecord::Base
   has_many :accolades
 
   acts_as_taggable
-  acts_as_taggable_on :sins
+  acts_as_taggable_on :sins, :virtues
   
 
   validates :name, :presence => true, :length => { :in => 5..128 }

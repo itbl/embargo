@@ -207,7 +207,7 @@ Devise.setup do |config|
   when 'development' || 'test'
     config.omniauth :github, '14cfcb59ed3f7712b05a', '7d944f7a4034f2c0f96f28e4c2ebd19bdacb8495', :scope => 'user,public_repo'
   when 'production'
-    config.omniauth :github, ENV['GITHUB_CLIENT_ID'], ENV['GITHUB_SECRET'], :scope => 'user,public_repo'
+    config.omniauth :github, 'd99f2ffbea6d6747e3ea', 'f47225b950fac293a6a3a6fc27d2693355ba25e0', :scope => 'user,public_repo'
   end
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

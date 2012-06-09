@@ -6,13 +6,12 @@ Embargo::Application.routes.draw do
 
   get "voting/downvote"
 
-  resources :reports
+
 
   resources :accusations
   resources :accolades
 
   resources :clients do
-    resources :reports
     resources :accusations
     resources :accolades
   end

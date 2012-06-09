@@ -10,7 +10,7 @@ class ClientsController < ApplicationController
   end
   
   def show
-    @client = Client.find(params[:id])
+    @client = Client.includes(:reports, :accusations, :accolades).find(params[:id])
     
     respond_with @client
   end

@@ -50,8 +50,8 @@
           .well.sidebar-nav
             %ul.nav.nav-list
               %li.nav-header Sidebar
-              %li= link_to "Add a client", new_client_path
-              %li= link_to "File a Report", new_report_path
+              %li= link_to "Find a Client", clients_path
+              /%li= link_to "File a Report", new_report_path
               /%li= link_to "Link 3", "/path3"
         .span9
           = render 'shared/flashes'

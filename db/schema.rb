@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120609153604) do
+ActiveRecord::Schema.define(:version => 20120609155045) do
+
+  create_table "attached_images", :force => true do |t|
+    t.integer  "report_id"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "attached_images", ["report_id"], :name => "index_attached_images_on_report_id"
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -38,16 +47,14 @@ ActiveRecord::Schema.define(:version => 20120609153604) do
 
   create_table "reports", :force => true do |t|
     t.string   "title"
-    t.text     "description"
+    t.string   "description"
     t.string   "type"
-    t.boolean  "anonymous",   :default => false
-    t.boolean  "public",      :default => true
     t.integer  "user_id"
     t.integer  "client_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "up_votes",    :default => 0,     :null => false
-    t.integer  "down_votes",  :default => 0,     :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "up_votes",    :default => 0, :null => false
+    t.integer  "down_votes",  :default => 0, :null => false
   end
 
   add_index "reports", ["client_id"], :name => "index_reports_on_client_id"

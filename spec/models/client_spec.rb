@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Client do
   before(:each) do
-    @client = Factory.create(:client)
+    @client = FactoryGirl.create(:client)
   end
   
   it "should be valid" do

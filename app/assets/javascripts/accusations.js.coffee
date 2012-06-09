@@ -3,12 +3,12 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 class Accusation
-  constructor: (@title, @body, @accusable) ->
+  constructor: (@attributes) ->
     
     
     
     
 class Accusable
-  constructor: (@name) ->
+  constructor: (@attributes) ->
     
     

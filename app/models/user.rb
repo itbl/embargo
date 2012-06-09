@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
   
-  has_many :accusations, :foreign_key => :accuser_id
+  has_many :accusations
+  has_may :accolades
 
   acts_as_tagger
   make_voter

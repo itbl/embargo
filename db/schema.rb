@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120609153604) do
+ActiveRecord::Schema.define(:version => 20120609155045) do
+
+  create_table "attached_images", :force => true do |t|
+    t.integer  "report_id"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "attached_images", ["report_id"], :name => "index_attached_images_on_report_id"
 
   create_table "clients", :force => true do |t|
     t.string   "name"

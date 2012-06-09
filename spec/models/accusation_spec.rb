@@ -6,7 +6,7 @@ describe Accusation do
   end
   
   it "should be valid" do
-    @factory.should be_valid
+    @accusation.should be_valid
   end
   
   

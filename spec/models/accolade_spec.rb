@@ -6,7 +6,7 @@ describe Accolade do
   end
   
   it "should be valid" do
-    @factory.should be_valid
+    @accolade.should be_valid
   end
   
   

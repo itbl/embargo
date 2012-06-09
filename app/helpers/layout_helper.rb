@@ -2,6 +2,7 @@
 # This module should be included in all views globally,
 # to do so you may need to add this line to your ApplicationController
 #   helper :layout
+
 module LayoutHelper
   def title(page_title, show_title = true)
     @show_title = show_title

@@ -9,3 +9,34 @@
   %p
     %b Homepage: 
     = @client.email
+%ul.nav.nav-tabs
+  %li.active
+    %a(href='#accusations' data-toggle='tab') Accusations
+  %li
+    %a(href='#accolades' data-toggle="tab") Accolades
+
+/ Some of this still needs to be fixed.
+.tab-content
+  .tab-pane.active#accusations
+    - @client.accusations.each do |report|
+      %h3= report.title
+      %p= report.description
+      - unless report.anonymous
+        %h6
+          Submitted by
+          = gravatar_image_tag(report.user.email, :gravatar => { :size => 20 })
+          = report.user.username
+      - else
+        %h6 Submitted anonymously
+  .tab-pane.active#accolades
+    - @client.accolades.each do |report|
+      %h3= report.title
+      %p= report.description
+      - unless report.anonymous
+        %h6
+          Submitted by
+          = gravatar_image_tag(report.user.email, :gravatar => { :size => 20 })
+          = report.user.username
+      - else
+        %h6 Submitted anonymously
+

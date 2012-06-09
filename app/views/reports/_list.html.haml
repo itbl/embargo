@@ -1,5 +1,5 @@
 - @reports.each do |report|
+  %h3= link_to(report.title, report)
+  %h6= report.client.name
   %p
-    = report.title
-    \-
-    %em= report.description.truncate(50)
+    %em= report.description.truncate(128)

@@ -242,7 +242,7 @@ DEPENDENCIES
   heroku
   jquery-rails
   kaminari
-  make_voteable
+  make_voteable (~> 0.1.1)
   omniauth
   omniauth-github
   pg

@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe Person do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    @person = Factory(:person)
+  end
+  
+  it "should be valid" do
+    @person.should be_valid
+  end
 end

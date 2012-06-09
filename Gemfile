@@ -59,7 +59,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'acts-as-taggable-on', '~> 2.3.1'
-gem 'make_voteable'
+gem 'make_voteable', '~> 0.1.1'
 
 
 

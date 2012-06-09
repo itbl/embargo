@@ -2,6 +2,10 @@ Embargo::Application.routes.draw do
   
   match 'dashboard' => 'dashboard#index'
   
+  get "voting/upvote"
+
+  get "voting/downvote"
+
   resources :accusations
 
   resources :people

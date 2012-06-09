@@ -1,5 +1,13 @@
 require 'spec_helper'
 
 describe Accusation do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    @accusation = FactoryGirl.create(:accusation)
+  end
+  
+  it "should be valid" do
+    @factory.should be_valid
+  end
+  
+  
 end

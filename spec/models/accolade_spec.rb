@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Accolade do
   before(:each) do
-    @accolade = Factory.create(:accolade)
+    @accolade = FactoryGirl.create(:accolade)
   end
   
   it "should be valid" do

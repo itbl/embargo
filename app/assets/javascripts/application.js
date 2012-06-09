@@ -13,4 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require ember
+//= require ember-data
+//= require_self
+//= require embargo
+Embargo = Ember.Application.create();
 //= require_tree .

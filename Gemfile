@@ -41,6 +41,7 @@ gem 'debugger', :group => :development
 gem 'heroku'
 
 gem 'jquery-rails'
+gem 'ember-rails'
 
 gem 'twitter-bootstrap-rails'
 gem 'font-awesome-rails'

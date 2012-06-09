@@ -47,6 +47,9 @@ gem 'font-awesome-rails'
 
 gem "gravatar_image_tag", "~> 1.1.2"
 
+gem 'kaminari'
+gem 'squeel'
+gem 'ransack'
 
 gem 'haml-rails'
 

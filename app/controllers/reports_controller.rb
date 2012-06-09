@@ -11,8 +11,6 @@ class ReportsController < ApplicationController
   end
   
   def show
-    @report = Report.find(params[:id])
-    
     respond_with @report
   end
   
@@ -23,8 +21,6 @@ class ReportsController < ApplicationController
   end
   
   def edit
-    @report = Report.find(params[:id])
-    
     respond_with @report
   end
   
@@ -38,9 +34,7 @@ class ReportsController < ApplicationController
     end
   end
   
-  def update
-    @report = Report.find(params[:id])
-    
+  def update    
     if @report.update_attributes(params[:report])
       redirect_to @report, :notice => "#{@report.type} successfully updated"
     else
@@ -48,9 +42,7 @@ class ReportsController < ApplicationController
     end
   end
 
-  def delete
-    @report = Report.find(params[:id])
-    
+  def delete    
     if @report.destroy
       redirect_to reports_path, :notice => "#{@report.type} deleted"
     else

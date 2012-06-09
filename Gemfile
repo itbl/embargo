@@ -40,6 +40,9 @@ gem 'debugger', :group => :development
 
 gem 'heroku'
 
+gem 'fog'
+gem 'carrierwave'
+
 gem 'jquery-rails'
 
 gem 'twitter-bootstrap-rails'

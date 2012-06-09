@@ -1,3 +1,2 @@
-
-class AccoladesController < ApplicationController
+class AccoladesController < ReportsController
 end

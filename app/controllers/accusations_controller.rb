@@ -1,3 +1,2 @@
-
-class AccusationsController < ApplicationController
+class AccusationsController < ReportsController
 end

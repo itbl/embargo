@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
       data = access_token.extra.raw_info
       if user = self.find_by_email(data.email)
         user
-      elsif user_signup_allowed?(data)
+      else #if user_signup_allowed?(data)
         self.create(:email => data.email, :password => Devise.friendly_token[0,20], :username => data.login)
       else
         raise Embargo::RequirementsError, "We're sorry, you're not eligible to register at this time."

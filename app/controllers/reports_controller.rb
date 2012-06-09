@@ -57,5 +57,9 @@ class ReportsController < ApplicationController
     end
   end
 
+  private
 
+  def find_client
+    @client = Client.find(params[:client_id]) if params[:client_id]
+  end
 end

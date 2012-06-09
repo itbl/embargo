@@ -1,0 +1,11 @@
+= simple_form_for(@report, :html => {:class => "form-vertical"}) do |form|
+  = f.input :title
+  = f.input :body
+  = f.input :type, :collection => ['Accusation', 'Accolade']
+  - if params[:client_id]
+    = f.hidden :client_id, :value => params[:client_id]
+  - else
+    = f.association :client
+  = f.hidden :user_id, :value => current_user.id
+
+  = f.button 'Submit'

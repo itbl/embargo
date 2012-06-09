@@ -1,0 +1,3 @@
+
+class AccoladesController < ApplicationController
+end

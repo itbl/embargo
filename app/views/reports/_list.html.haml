@@ -1,0 +1,5 @@
+- @reports.each do |report|
+  %p
+    = report.title
+    \-
+    %em= report.description.truncate(50)

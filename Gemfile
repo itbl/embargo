@@ -53,6 +53,8 @@ gem 'ransack'
 
 gem 'haml-rails'
 
+gem 'simple_form'
+
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github'

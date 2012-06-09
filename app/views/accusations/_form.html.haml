@@ -1,0 +1,4 @@
+= simple_form_for(@accusation, :html => {:class => "form-vertical"}) do |form|
+  = f.input :title
+  = f.input :body
+  = f.input :accusable_type, :collection => ['Company','Person']

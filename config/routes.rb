@@ -8,6 +8,9 @@ Embargo::Application.routes.draw do
 
   resources :reports
 
+  resources :accusations
+  resources :accolades
+
   resources :clients do
     resources :reports
     resources :accusations

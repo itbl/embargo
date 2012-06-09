@@ -1,7 +1,7 @@
 = simple_form_for(@report, :html => {:class => "form-vertical"}) do |f|
   = f.input :title
   = f.input :description
-  = f.hidden_field :type, :value => 'Accolade'
+  = f.hidden_field :type, :value => 'Accusation'
   - if params[:client_id]
     = f.hidden_field :client_id, :value => params[:client_id]
   - else

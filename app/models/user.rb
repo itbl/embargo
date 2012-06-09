@@ -21,8 +21,8 @@ class User < ActiveRecord::Base
         user
       else #if user_signup_allowed?(data)
         self.create(:email => data.email, :password => Devise.friendly_token[0,20], :username => data.login)
-      else
-        raise Embargo::RequirementsError, "We're sorry, you're not eligible to register at this time."
+      #else
+      #  raise Embargo::RequirementsError, "We're sorry, you're not eligible to register at this time."
       end
     end
   

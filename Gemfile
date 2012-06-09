@@ -44,6 +44,7 @@ gem 'fog'
 gem 'carrierwave'
 
 gem 'jquery-rails'
+gem 'rails-backbone'
 
 gem 'twitter-bootstrap-rails'
 gem 'font-awesome-rails'

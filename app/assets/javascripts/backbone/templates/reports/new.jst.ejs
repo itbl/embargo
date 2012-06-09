@@ -1,0 +1,35 @@
+<h1>New report</h1>
+
+<form id="new-report" name="report">
+  <div class="field">
+    <label for="title"> title:</label>
+    <input type="text" name="title" id="title" value="<%= title %>" >
+  </div>
+
+  <div class="field">
+    <label for="description"> description:</label>
+    <input type="text" name="description" id="description" value="<%= description %>" >
+  </div>
+
+  <div class="field">
+    <label for="type"> type:</label>
+    <input type="text" name="type" id="type" value="<%= type %>" >
+  </div>
+
+  <div class="field">
+    <label for="user"> user:</label>
+    <input type="text" name="user" id="user" value="<%= user %>" >
+  </div>
+
+  <div class="field">
+    <label for="client"> client:</label>
+    <input type="text" name="client" id="client" value="<%= client %>" >
+  </div>
+
+  <div class="actions">
+    <input type="submit" value="Create Report" />
+  </div>
+
+</form>
+
+<a href="#/index">Back</a>

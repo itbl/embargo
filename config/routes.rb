@@ -1,4 +1,8 @@
 Embargo::Application.routes.draw do
+  get "voting/upvote"
+
+  get "voting/downvote"
+
   resources :accusations
 
   resources :people

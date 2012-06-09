@@ -1,5 +1,5 @@
 class AccusationsController < ApplicationController
-  skip_before_filter :require_login, :only => :index
+  skip_before_filter :authenticate_user!, :only => :index
 
   respond_to :html, :json
   

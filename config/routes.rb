@@ -1,4 +1,7 @@
 Embargo::Application.routes.draw do
+  
+  match 'dashboard' => 'dashboard#index'
+  
   resources :accusations
 
   resources :people

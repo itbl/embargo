@@ -13,38 +13,30 @@
 
 ActiveRecord::Schema.define(:version => 20120609003613) do
 
-  create_table "accusations", :force => true do |t|
-    t.string   "title"
-    t.string   "description"
-    t.integer  "accuser_id"
-    t.integer  "accusable_id"
-    t.string   "accusable_type"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.integer  "up_votes",       :default => 0, :null => false
-    t.integer  "down_votes",     :default => 0, :null => false
-  end
-
-  add_index "accusations", ["accusable_id"], :name => "index_accusations_on_accusable_id"
-  add_index "accusations", ["accuser_id"], :name => "index_accusations_on_accuser_id"
-
-  create_table "companies", :force => true do |t|
+  create_table "clients", :force => true do |t|
     t.string   "name"
-    t.string   "city"
+    t.string   "email"
     t.string   "homepage"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "people", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.integer  "company_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  add_index "clients", ["email"], :name => "index_clients_on_email"
+
+  create_table "reports", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "type"
+    t.integer  "user_id"
+    t.integer  "client_id"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "up_votes",    :default => 0, :null => false
+    t.integer  "down_votes",  :default => 0, :null => false
   end
 
-  add_index "people", ["company_id"], :name => "index_people_on_company_id"
+  add_index "reports", ["client_id"], :name => "index_reports_on_client_id"
+  add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

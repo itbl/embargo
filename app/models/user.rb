@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
   
   has_many :accusations, :foreign_key => :accuser_id
+
+  acts_as_tagger
   
   class << self
     def find_for_github_oauth(access_token, signed_in_resource=nil)

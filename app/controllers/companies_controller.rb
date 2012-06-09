@@ -1,3 +1,0 @@
-
-class CompaniesController < ApplicationController
-end

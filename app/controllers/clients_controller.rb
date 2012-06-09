@@ -3,7 +3,8 @@ class ClientsController < ApplicationController
   respond_to :html, :json
   
   def index
-    @clients = Client.page params[:page]
+    @q = Client.search(params[:q])
+    @clients = @q.result(:distinct => true)
     
     respond_with @clients
   end
@@ -30,9 +31,9 @@ class ClientsController < ApplicationController
     @client = Client.new(params[:client])
     
     if @client.save
-      redirect_to @client, :notice => "#{@client.type} successfully created"
+      redirect_to @client, :notice => "Client successfully created"
     else
-      redirect_to new_client_path, :alert => "#{@client.type} could not be created"
+      redirect_to new_client_path, :alert => "Client could not be created"
     end
   end
   
@@ -40,9 +41,9 @@ class ClientsController < ApplicationController
     @client = Client.find(params[:id])
     
     if @client.update_attributes(params[:client])
-      redirect_to @client, :notice => "#{@client.type} successfully updated"
+      redirect_to @client, :notice => "Client successfully updated"
     else
-      redirect_to edit_client_path(@client), :alert => "#{@client.type} could not be updated"
+      redirect_to edit_client_path(@client), :alert => "Client could not be updated"
     end
   end
 
@@ -50,7 +51,7 @@ class ClientsController < ApplicationController
     @client = Client.find(params[:id])
     
     if @client.destroy
-      redirect_to clients_path, :notice => "#{@client.type} deleted"
+      redirect_to clients_path, :notice => "Client deleted"
     else
       redirect_to @client, :alert => "An error has been"
     end

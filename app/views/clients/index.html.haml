@@ -1,1 +1,20 @@
 - title 'Clients'
+.hero-unit
+  = search_form_for(@q, :html => {:class => 'form-inline'}) do |f|
+    = f.label :name_cont
+    = f.text_field :name_cont
+    = f.submit
+
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Email
+        %th Homepage
+    %tbody
+      - @clients.each do |client|
+        %tr
+          %td= client.name
+          %td= client.email
+          %td= client.homepage
+

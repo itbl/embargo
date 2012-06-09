@@ -3,7 +3,7 @@
   %head
     %meta(charset="utf-8")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %title= content_for?(:title) ? yield(:title) : "IT Blacklist"
+    %title= content_for?(:title) ? yield(:title) : "Purgatory"
     = csrf_meta_tags
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
@@ -27,7 +27,7 @@
           .container.nav-collapse
             %ul.nav
               %li= link_to "Dashboard", dashboard_path
-              %li= link_to "Link 3", "/path3"
+              /%li= link_to "Link 3", "/path3"
             %ul.nav.pull-right
               - unless current_user
                 %li= link_to "Sign in w/ Github", user_omniauth_authorize_path(:github)
@@ -40,7 +40,7 @@
                     %b.caret
                   %ul.dropdown-menu
                     %li= link_to "Sign Out", users_sign_out_path, :method => :delete
-                    %li Bar
+                  
 
     .container-fluid
 
@@ -49,9 +49,9 @@
           .well.sidebar-nav
             %ul.nav.nav-list
               %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li= link_to "Add a client", new_client_path
+              %li= link_to "File a Report", new_report_path
+              /%li= link_to "Link 3", "/path3"
         .span9
           = render 'shared/flashes'
           = yield

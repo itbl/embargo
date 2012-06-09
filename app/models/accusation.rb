@@ -8,4 +8,5 @@ class Accusation < ActiveRecord::Base
   default_scope order('created_at desc')
   
   accepts_nested_attributes_for :accusable
+  make_voteable
 end

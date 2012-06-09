@@ -3,9 +3,6 @@ class Report < ActiveRecord::Base
   belongs_to :user
   has_many :comments
   attr_accessible :description, :title, :type, :client_id, :user_id
-
-  validates :title, :presence => true, :length => { :in => 5..128 }
-  validates :description, :presence => true, :length => { :in => 20..2000 }
   
   paginates_per 25
   

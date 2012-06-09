@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
   
   has_many :accusations
-  has_may :accolades
+  has_many :accolades
 
   acts_as_tagger
   make_voter

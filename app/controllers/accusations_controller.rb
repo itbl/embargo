@@ -1,5 +1,6 @@
 class AccusationsController < ApplicationController
   skip_before_filter :authenticate_user!, :only => :index
+  before_filter :find_accusation, :only => [ :show, :edit, :update, :delete ]
   
   respond_to :html, :json
   
@@ -10,7 +11,6 @@ class AccusationsController < ApplicationController
   end
   
   def show
-    @accusation = Accusation.find(params[:id])
     respond_with @accusation
   end
   
@@ -21,15 +21,13 @@ class AccusationsController < ApplicationController
   end
   
   def edit
-    @accusation = Accusation.find(params[:id])
-
     respond_with @accusation
   end
   
   def create
     @accusation = Accusation.new(params[:accusation])
     
-    if @accusation.save!
+    if @accusation.save
       redirect_to @accusation, :notice => "Accusation successfully created"
     else
       redirect_to new_accusation_path, :alert => "Accusation could not be created"
@@ -37,7 +35,6 @@ class AccusationsController < ApplicationController
   end
   
   def update
-    @accusation = Accusation.find(params[:id])
     if @accusation.update_attributes(params[:accusation])
       redirect_to @accusation, :notice => "Accusation successfully updated"
     else
@@ -46,11 +43,17 @@ class AccusationsController < ApplicationController
   end
 
   def delete
-    @accusation = Accusation.find(params[:id])
     if @accusation.destroy
       redirect_to accusations_path, :notice => "Accusation deleted"
     else
       redirect_to @accusation, :alert => "An error has been"
     end
   end
+
+  private
+
+  def find_accusation
+    @accusation = Accusation.find(params[:id])
+  end
+
 end

@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe Company do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    @company = Factory(:company)
+  end
+  
+  it "should be valid" do
+    @company.should be_valid
+  end
 end

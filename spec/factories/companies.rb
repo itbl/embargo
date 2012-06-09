@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :company do
-    name "MyString"
-    city "MyString"
-    homepage "MyString"
+    name "BastardCO"
+    city "Baltimore"
+    homepage "http://bastardco.com"
   end
 end

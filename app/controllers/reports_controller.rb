@@ -31,9 +31,9 @@ class ReportsController < ApplicationController
     @report = Report.new(params[:report])
     
     if @report.save
-      redirect_to @report, :notice => "report successfully created"
+      redirect_to @report, :notice => "#{@report.type} successfully created"
     else
-      redirect_to new_report_path, :alert => "report could not be created"
+      redirect_to new_report_path, :alert => "#{@report.type} could not be created"
     end
   end
   
@@ -41,9 +41,9 @@ class ReportsController < ApplicationController
     @report = Report.find(params[:id])
     
     if @report.update_attributes(params[:report])
-      redirect_to @report, :notice => "report successfully updated"
+      redirect_to @report, :notice => "#{@report.type} successfully updated"
     else
-      redirect_to edit_report_path(@report), :alert => "report could not be updated"
+      redirect_to edit_report_path(@report), :alert => "#{@report.type} could not be updated"
     end
   end
 
@@ -51,7 +51,7 @@ class ReportsController < ApplicationController
     @report = Report.find(params[:id])
     
     if @report.destroy
-      redirect_to reports_path, :notice => "report deleted"
+      redirect_to reports_path, :notice => "#{@report.type} deleted"
     else
       redirect_to @report, :alert => "An error has been"
     end

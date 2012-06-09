@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   skip_before_filter :authenticate_user!, :only => :index
+  before_filter :find_report, :except => [ :index, :new, :create ]
 
   respond_to :html, :json
   
@@ -58,6 +59,10 @@ class ReportsController < ApplicationController
   end
 
   private
+
+  def find_report
+    @report = Report.find(params[:id])
+  end
 
   def find_client
     @client = Client.find(params[:client_id]) if params[:client_id]

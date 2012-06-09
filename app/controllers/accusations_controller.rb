@@ -1,7 +1,7 @@
 class AccusationsController < ReportsController
 
     def index
-		@reports = Accusation.page params[:page]
+		  @reports = Accusation.page params[:page]
     end
 
     def new

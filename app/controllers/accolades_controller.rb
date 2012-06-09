@@ -1,7 +1,7 @@
 class AccoladesController < ReportsController
 
-	def index
-		@reports = Accolade.page params[:page]
+	  def index
+		  @reports = Accolade.page params[:page]
     end
 
     def new

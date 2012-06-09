@@ -1,0 +1,7 @@
+- title 'Accusations'
+.hero-unit
+  - @accusations.each do |report|
+    %h3= link_to(report.title, report)
+    %h6= report.client.name
+    %p
+      %em= report.description.truncate(128)

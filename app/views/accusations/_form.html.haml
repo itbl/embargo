@@ -7,5 +7,7 @@
   - else
     = f.association :client
   = f.hidden_field :user_id, :value => current_user.id
-
+  = f.input :public
+  = f.input :anonymous
+  
   = f.submit

@@ -8,7 +8,8 @@ class Client < ActiveRecord::Base
 
   acts_as_taggable
   acts_as_taggable_on :sins, :virtues
-  
+
+  paginates_per 25
 
   validates :name, :presence => true, :length => { :in => 5..128 }
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i,

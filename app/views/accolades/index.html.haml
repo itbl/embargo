@@ -2,6 +2,7 @@
 .hero-unit
   - @accolades.each do |report|
     %h3= link_to(report.title, report)
+    %h6= report.virtues.join(", ")
     %h6= report.client.name
     %p
       %em= report.description.truncate(128)

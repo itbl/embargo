@@ -1,6 +1,7 @@
 - title @accolade.title
 .hero-unit
   %h3= @accolade.title
+  %h6= @accolade.virtues.join(", ")
   %h6
     Re: 
     = @accolade.client.name

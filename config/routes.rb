@@ -1,6 +1,8 @@
 Embargo::Application.routes.draw do
   
   match 'dashboard' => 'dashboard#index'
+  match 'dashboard/feed' => 'dashboard#feed'
+  match 'frontpage/feed' => 'frontpage#feed'
   
   get "voting/upvote"
 

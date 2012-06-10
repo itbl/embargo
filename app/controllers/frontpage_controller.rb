@@ -5,4 +5,11 @@ class FrontpageController < ApplicationController
   def index
     @reports = Report.publik
   end
+
+  def feed
+    @report = Report.publik.sample
+    respond_to do |format|
+      format.js
+    end
+  end
 end

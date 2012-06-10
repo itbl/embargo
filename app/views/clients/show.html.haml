@@ -2,6 +2,9 @@
 .hero-unit
   %p
     %h2.fell= @client.name
+  .hero-right
+    %h6.virtue= "Virtues: " + @client.virtues.join(", ")
+    %h6.sin= "Sins: " + @client.sins.join(", ")
   %p
     %b Email: 
     = link_to @client.email, "mailto:#{@client.email}"

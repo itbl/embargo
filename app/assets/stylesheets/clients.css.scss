@@ -5,3 +5,20 @@
 .fell {
   font-family: 'IM Fell English', serif;
 }
+
+.hero-left {
+  float: left;
+}
+
+.hero-right {
+	float: right;
+  h6 {
+    font-size: 16px;
+  }
+  h6.virtue {
+    color: #33CCFF;
+  }
+  h6.sin {
+    color: red;
+  }
+}

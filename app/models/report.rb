@@ -9,7 +9,7 @@ class Report < ActiveRecord::Base
   scope :feed, order('created_at desc')
 
   
-  paginates_per 25
+  paginates_per 20
   
   default_scope order('created_at desc')
   

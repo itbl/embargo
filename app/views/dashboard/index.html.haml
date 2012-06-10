@@ -1,6 +1,20 @@
 .dash
   %h2 Welcome to Purgatory
-
+  %h1 &nbsp;
   %h4.fell Latest reports:
-  #feed
+  #latest
+    - @reports.each do |report|
+      .report
+        %h4= link_to report.client.name, report.client
+        %h4= report.title
+        %h6= report.virtues.join(", ")
+        %h6= report.sins.join(", ")
+        %p= report.description
+        - unless report.anonymous
+          %h6
+            Submitted by
+            = gravatar_image_tag(report.user.email, :gravatar => { :size => 20 })
+            = report.user.username
+        - else
+          %h6 Submitted anonymously
     

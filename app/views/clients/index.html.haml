@@ -4,19 +4,22 @@
     = f.label :name_cont
     = f.text_field :name_cont
     = f.submit
-
-  %table.table
-    %thead
-      %tr
-        %th Name
-        %th Email
-        %th Homepage
-    %tbody
-      - @clients.each do |client|
+  - if @clients.any?
+    %table.table
+      %thead
         %tr
-          %td= client.name
-          %td= client.email
-          %td= client.homepage
-          %td= link_to "Info", client, :class => 'btn btn-info'
-          %td= link_to "Praise", new_client_accolade_path(client), :class => 'btn btn-success'
-          %td= link_to "Condemn", new_client_accusation_path(client), :class => 'btn btn-danger'
+          %th Name
+          %th Email
+          %th Homepage
+      %tbody
+        - @clients.each do |client|
+          %tr
+            %td= client.name
+            %td= client.email
+            %td= client.homepage
+            %td= link_to "Info", client, :class => 'btn btn-info'
+            %td= link_to "Praise", new_client_accolade_path(client), :class => 'btn btn-success'
+            %td= link_to "Condemn", new_client_accusation_path(client), :class => 'btn btn-danger'
+  - else
+    %p.fell No matches. Why not add one?
+    %p= link_to "Add Client", new_client_path, :class => 'btn btn-inverse'

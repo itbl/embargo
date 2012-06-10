@@ -4,6 +4,8 @@ class Report < ActiveRecord::Base
   has_many :comments
   attr_accessible :description, :title, :type, :client_id, :user_id
 
+  acts_as_taggable
+  acts_as_taggable_on :sins, :virtues
 
   scope :publik, where(:public => true)
   scope :feed, order('created_at desc')

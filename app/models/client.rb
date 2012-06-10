@@ -6,9 +6,6 @@ class Client < ActiveRecord::Base
   has_many :accusations
   has_many :accolades
 
-  acts_as_taggable
-  acts_as_taggable_on :sins, :virtues
-
   paginates_per 25
 
   validates :name, :presence => true, :length => { :in => 5..128 }

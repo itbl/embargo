@@ -1,6 +1,7 @@
 - title @accusation.title
 .hero-unit
   %h3= @accusation.title
+  %h6= @accusation.sins.join(", ")
   %h6
     Re: 
     = @accusation.client.name

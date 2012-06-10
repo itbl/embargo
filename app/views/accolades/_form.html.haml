@@ -1,11 +1,13 @@
-= simple_form_for(@accolade, :html => {:class => "form-vertical"}) do |f|
+= simple_form_for(@accolade, :html => {:class => "well form-horizontal"}) do |f|
   = f.input :title
-  = f.input :description
-  = f.input :virtue_list
+  = f.input :description, :input_html => {:class => 'textar1'}
+  = f.input :virtue_list, :hint => "Comma separated list"
   - if params[:client_id]
     = f.hidden_field :client_id, :value => params[:client_id]
   - else
     = f.association :client
   = f.hidden_field :user_id, :value => current_user.id
+  = f.input :public
+  = f.input :anonymous
 
-  = f.submit
+  = f.button :submit

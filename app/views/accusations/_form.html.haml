@@ -1,7 +1,7 @@
-= simple_form_for(@accusation, :html => {:class => "form-vertical"}) do |f|
+= simple_form_for(@accusation, :html => {:class => "well form-horizontal"}) do |f|
   = f.input :title
-  = f.input :description
-  = f.input :sin_list
+  = f.input :description, :input_html => {:class => 'textar1'}
+  = f.input :sin_list, :hint => "Comma separated list"
   - if params[:client_id]
     = f.hidden_field :client_id, :value => params[:client_id]
   - else

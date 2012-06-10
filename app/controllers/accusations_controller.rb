@@ -28,7 +28,7 @@ class AccusationsController < ApplicationController
     @accusation = Accusation.new(params[:accusation])
     
     if @accusation.save
-      redirect_to @accusation, :notice => "Accusation successfully created"
+      redirect_to @accusation.client, :notice => "Accusation successfully created"
     else
       redirect_to new_accusation_path, :alert => "Accusation could not be created"
     end

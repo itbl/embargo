@@ -1,13 +1,16 @@
 - title @client.name
 .hero-unit
   %p
-    %h2= @client.name
+    %h2.fell= @client.name
   %p
     %b Email: 
-    = @client.email
+    = link_to @client.email, "mailto:#{@client.email}"
   %p
     %b Homepage: 
-    = @client.email
+    = link_to @client.homepage, @client.homepage
+  %p
+    = link_to "Praise", new_client_accolade_path(@client), :class => 'btn btn-success'
+    = link_to "Condemn", new_client_accusation_path(@client), :class => 'btn btn-danger'
 %ul#reportTab.nav.nav-tabs
   %li.active
     %a(href="#all" data-toggle="tab") All Reports

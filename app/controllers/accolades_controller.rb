@@ -28,7 +28,7 @@ class AccoladesController < ApplicationController
     @accolade = Accolade.new(params[:accolade])
     
     if @accolade.save
-      redirect_to @accolade, :notice => "Accolade successfully created"
+      redirect_to @accolade.client, :notice => "Accolade successfully created"
     else
       redirect_to new_accolade_path, :alert => "Accolade could not be created"
     end

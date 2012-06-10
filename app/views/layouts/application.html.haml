@@ -26,9 +26,10 @@
             %span.icon-bar
           %a.brand(href="#") Purgatory
           .container.nav-collapse
-            %ul.nav
-              %li= link_to "Dashboard", dashboard_path
-              /%li= link_to "Link 3", "/path3"
+            - if current_user
+              %ul.nav
+                %li= link_to "Dashboard", dashboard_path
+                /%li= link_to "Link 3", "/path3"
             %ul.nav.pull-right
               - unless current_user
                 %li= link_to "Sign in w/ Github", user_omniauth_authorize_path(:github)
@@ -47,18 +48,21 @@
 
       .row-fluid
         .span3
-          .well.sidebar-nav
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Find a Client", clients_path
-              /%li= link_to "File a Report", new_report_path
-              /%li= link_to "Link 3", "/path3"
+          - if current_user
+            .well.sidebar-nav
+              %ul.nav.nav-list
+                %li.nav-header Actions
+                %li= link_to "Find a Client", clients_path
+                /%li= link_to "File a Report", new_report_path
+                /%li= link_to "Link 3", "/path3"
+          - else
+            = image_tag 'purgatory.jpg'
         .span9
           = render 'shared/flashes'
           = yield
     
       %footer
-        %p &copy; Company 2012
+        %p &copy; CoderCanon 2012
     /
       Javascripts
       \==================================================

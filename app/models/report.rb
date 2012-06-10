@@ -6,6 +6,7 @@ class Report < ActiveRecord::Base
 
 
   scope :publik, where(:public => true)
+  scope :feed, order('created_at desc')
 
   
   paginates_per 25

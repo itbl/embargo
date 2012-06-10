@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
   
-  has_many :accusations
-  has_many :accolades
+  has_many :accusations, :dependent => :destroy
+  has_many :accolades, :dependent => :destroy
 
   acts_as_tagger
   make_voter
@@ -19,10 +19,10 @@ class User < ActiveRecord::Base
       data = access_token.extra.raw_info
       if user = self.find_by_email(data.email)
         user
-      else #if user_signup_allowed?(data)
-        self.create(:email => data.email, :password => Devise.friendly_token[0,20], :username => data.login)
-      #else
-      #  raise Embargo::RequirementsError, "We're sorry, you're not eligible to register at this time."
+      elsif user_signup_allowed?(data)
+        self.create!(:email => data.email, :password => Devise.friendly_token[0,20], :username => data.login)
+      else
+        raise Embargo::RequirementsError, "We're sorry, you're not eligible to register at this time."
       end
     end
   

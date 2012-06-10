@@ -1,7 +1,7 @@
 class Report < ActiveRecord::Base
   belongs_to :client
   belongs_to :user
-  has_many :comments
+  has_many :comments, :dependent => :destroy
   attr_accessible :description, :title, :type, :client_id, :user_id
 
   acts_as_taggable

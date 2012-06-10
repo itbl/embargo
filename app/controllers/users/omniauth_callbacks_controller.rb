@@ -10,7 +10,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       remember_me(@user)
     else
       session["devise.github_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
+      redirect_to new_user_session_url
     end
   end
   

@@ -2,9 +2,9 @@ class Client < ActiveRecord::Base
 
   attr_accessible :email, :name, :homepage
 
-  has_many :reports
-  has_many :accusations
-  has_many :accolades
+  has_many :reports, :dependent => :destroy
+  has_many :accusations, :dependent => :destroy
+  has_many :accolades, :dependent => :destroy
 
   paginates_per 25
 

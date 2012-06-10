@@ -15,4 +15,9 @@
 /tmp
 
 ./public/assets/*
+
+# Fuck this OS X bullshit
+.DS_Store
+
+/**/.DS_Store
 # Ignore our .env, it holds secrets

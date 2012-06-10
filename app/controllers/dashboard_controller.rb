@@ -6,7 +6,7 @@ class DashboardController < ApplicationController
   end
 
   def feed
-    @reports = Report.feed
+    @reports = Report.feed.limit(10)
 
     respond_to do |format|
       format.js

@@ -5,3 +5,4 @@
     %h6= report.client.name
     %p
       %em= report.description.truncate(128)
+  = paginate @accusations

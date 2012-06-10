@@ -12,5 +12,12 @@
       You'll need to prove your virtue to participate; only the worthy may enter. Sign in with Github, 
       and if you are truly righteous, you may pass judgement on the just and unjust alike.
 
-  #sample-report
-  
+  .hero-unit.front-body#sample-report
+    - @reports.each do |report|
+      .sreport
+        %h2= report.title
+        %h6= report.virtues.join(", ")
+        %h6= report.sins.join(", ")
+        %p= report.description
+
+    

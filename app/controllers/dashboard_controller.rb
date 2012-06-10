@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
 
   def index
     @user = current_user
-    
+    @reports = Report.feed.limit(10)
   end
 
   def feed

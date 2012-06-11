@@ -17,12 +17,15 @@ class User < ActiveRecord::Base
   class << self
     def find_for_github_oauth(access_token, signed_in_resource=nil)
       data = access_token.extra.raw_info
-      if user = self.find_by_email(data.email)
+      if data.email.blank?
+        raise Embargo::RegistrationError, "You must have a public email address to register via Github."
+      end
+      if user = self.find_by_username(data.login)
         user
       elsif user_signup_allowed?(data)
         self.create!(:email => data.email, :password => Devise.friendly_token[0,20], :username => data.login)
       else
-        raise Embargo::RequirementsError, "We're sorry, you're not eligible to register at this time."
+        raise Embargo::ReqgistrationError, "We're sorry, you're not eligible to register at this time."
       end
     end
   

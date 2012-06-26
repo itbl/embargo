@@ -137,6 +137,7 @@ GEM
       net-ssh (>= 1.99.1)
     net-ssh (2.5.2)
     netrc (0.7.4)
+    newrelic_rpm (3.4.0)
     nokogiri (1.5.3)
     oauth2 (0.6.1)
       faraday (~> 0.7)
@@ -275,6 +276,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   make_voteable (~> 0.1.1)
+  newrelic_rpm
   omniauth
   omniauth-github
   pg
